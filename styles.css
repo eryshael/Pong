@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border box;
+}
+
+body {
+  background: black;
+  color: white
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+canvas {
+  background: #333;
+}
