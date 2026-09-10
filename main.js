@@ -66,9 +66,9 @@ function update() {
   
   if(ballY + ballH >= height) {ballDY = -ballDY}
   if(ballY <= 0) {ballDY = -ballDY}
-  ballPrevX = ballX
-  ballX += ballDX;
-  ballY += ballDY;
+  // ballPrevX = ballX
+  // ballX += ballDX;
+  // ballY += ballDY;
 
   // Ball collision against P1
   if(ballX <= p1X + p1W && ballY >= p1Y && ballY <= p1Y + p1H) {
@@ -80,10 +80,10 @@ function update() {
     ballDX = -ballDX
   }
   
-  if(keysDown.has("w")) p1Y -= 4;
-  if(keysDown.has("s")) p1Y += 4;
-  if(keysDown.has("ArrowUp")) p2Y -= 4;
-  if(keysDown.has("ArrowDown")) p2Y += 4;
+  if(keysDown.has("w") && p1Y >= 0) p1Y -= 4;
+  if(keysDown.has("s") && p1Y + p1H <= height) p1Y += 4;
+  if(keysDown.has("ArrowUp") && p2Y >= 0) p2Y -= 4;
+  if(keysDown.has("ArrowDown") && p2Y + p2H <= height) p2Y += 4;
 }
 
 function draw() {
