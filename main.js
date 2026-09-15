@@ -70,19 +70,17 @@ function update() {
   if (ballY <= 0) {
     ballDY = -ballDY;
   }
-  // ballPrevX = ballX
-  // ballX += ballDX;
-  // ballY += ballDY;
+  ballPrevX = ballX;
+  ballX += ballDX;
+  ballY += ballDY;
 
   // Ball collision against P1
-  if (ballX <= p1X + p1W && ballY >= p1Y && ballY <= p1Y + p1H) {
+  if (p1X >= ballX && p1X <= ballPrevX && ballY >= p1Y && ballY <= p1Y + p1H)
     ballDX = -ballDX;
-  }
 
   // Ball collision against P2
-  if (ballX + ballW >= p2X && ballY >= p2Y && ballY <= p2Y + p2H) {
+  if (p2X <= ballX && p2X >= ballPrevX && ballY >= p2Y && ballY <= p2Y + p2H)
     ballDX = -ballDX;
-  }
 
   if (keysDown.has("w") && p1Y >= 0) p1Y -= 4;
   if (keysDown.has("s") && p1Y + p1H <= height) p1Y += 4;
